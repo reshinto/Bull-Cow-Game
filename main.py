@@ -33,15 +33,15 @@ def play_game():
 def guess():
     # Required to increase count
     global current_try, Bulls, Cows
-    
+
     # Auto adjust number of max tries based on guess word length
     WordLenToMaxTries = {3:4, 4:7, 5:10, 6:16, 7:20}
     max_try = WordLenToMaxTries[len(guess_word)]
 
-    while current_try <= max_try:    
+    while current_try <= max_try:
         Bulls, Cows = 0, 0
         guess_attempt = input("\nTry {} of {}. Enter your guess: ".format(current_try, max_try)).lower()
-        if current_try <= max_try: 
+        if current_try <= max_try:
             # Ensure guesses are of the correct word length
             if len(guess_attempt) != len(guess_word):
                 print("Please enter a {} letter word.".format(len(guess_word)))
@@ -68,12 +68,8 @@ def guess():
                             Cows += 1
                 print("Bulls: {} | Cows: {}".format(Bulls, Cows))
                 if Bulls == len(guess_word):
-                    break 
-            # else:
-                # break 
-        # else:
-            # break  
-        current_try += 1 
+                    break
+        current_try += 1
     summary(guess_word)
 
 def play_again():
@@ -100,4 +96,4 @@ if __name__ == "__main__":
     intro()
     rules()
     play_game()
-    
+
